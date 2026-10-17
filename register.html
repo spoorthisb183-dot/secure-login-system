@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Create account | Secure Login</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="auth-card">
+    <h1>Create account</h1>
+    <p class="subtitle">Register to use the secure login demo.</p>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}<div class="messages">{% for message in messages %}<p>{{ message }}</p>{% endfor %}</div>{% endif %}
+    {% endwith %}
+    <form method="post">
+      <label for="username">Username</label>
+      <input id="username" name="username" minlength="3" maxlength="30" required autocomplete="username">
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" minlength="8" required autocomplete="new-password">
+      <button type="submit">Create account</button>
+    </form>
+    <p class="switch">Already registered? <a href="{{ url_for('login') }}">Log in</a></p>
+  </main>
+</body>
+</html>

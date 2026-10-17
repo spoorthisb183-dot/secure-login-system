@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard | Secure Login</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="auth-card dashboard">
+    <div class="shield" aria-hidden="true">🛡️</div>
+    <h1>You're logged in!</h1>
+    <p class="subtitle">Welcome, <strong>{{ username }}</strong>.</p>
+    <p>Your session is active. This page can only be viewed after logging in.</p>
+    <form method="post" action="{{ url_for('logout') }}">
+      <button type="submit" class="secondary">Log out</button>
+    </form>
+  </main>
+</body>
+</html>
